@@ -8,6 +8,7 @@ PetscErrorCode SetTestCones(DM dm)
 // https://petsc.org/release/manual/dmplex/
 {
     PetscFunctionBeginUser;
+    PetscCall(DMSetDimension(dm, 2));
     PetscCall(DMPlexSetChart(dm, 0, 11));
     /* DMPlexSetConeSize(dm, point, number of points that cover the point); */
     PetscCall(DMPlexSetConeSize(dm, 0, 3));
@@ -51,6 +52,15 @@ int main(int argc, char *argv[])
 
     PetscCall(SetTestCones(dm));
 
+    PetscViewer viewer = PETSC_VIEWER_STDOUT_WORLD;
+//    PetscCall(PetscViewerDrawOpen(PETSC_COMM_WORLD, 0, "", 300, 0, 300, 300, &viewer));
+    PetscCall(DMView(dm, viewer));
+    PetscCall(DMPlexTopologyView(dm, viewer));
+    PetscCall(DMPlexCoordinatesView(dm, viewer));
+    PetscCall(DMPlexLabelsView(dm, viewer));
+
+    // Destroy
+//    PetscCall(PetscViewerDestroy(&viewer));
     PetscCall(DMDestroy(&dm));
     PetscCall(PetscFinalize());
     return 0;
