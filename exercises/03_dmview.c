@@ -8,7 +8,7 @@ PetscErrorCode SetTestCones(DM dm)
 // https://petsc.org/release/manual/dmplex/
 {
     PetscFunctionBeginUser;
-    PetscCall(DMSetDimension(dm, 2));
+    PetscCall(DMSetDimension(dm, 2)); // https://petsc.org/release/manual/vec/#dmda-creating-vectors-for-structured-grids
     PetscCall(DMPlexSetChart(dm, 0, 11));
     /* DMPlexSetConeSize(dm, point, number of points that cover the point); */
     PetscCall(DMPlexSetConeSize(dm, 0, 3));
