@@ -5,6 +5,7 @@
 #include <petscviewerhdf5.h>
 
 PetscErrorCode SetTestCones(DM dm)
+// https://petsc.org/release/manual/dmplex/
 {
     PetscFunctionBeginUser;
     PetscCall(DMPlexSetChart(dm, 0, 11));

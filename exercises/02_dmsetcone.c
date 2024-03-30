@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     PetscCall(PetscInitialize(&argc, &argv, NULL, __FILE__ "\n"));
     PetscCall(DMPlexCreate(PETSC_COMM_WORLD, &dm));
 
+    // https://petsc.org/release/manual/dmplex/
     PetscCall(DMPlexSetChart(dm, 0, 11));
     /* DMPlexSetConeSize(dm, point, number of points that cover the point); */
     PetscCall(DMPlexSetConeSize(dm, 0, 3));
