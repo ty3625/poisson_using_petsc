@@ -5,8 +5,10 @@ Try solving the poisson equation using the finite element method using petsc.
 ## Prerequisites
 - Linux OS
 - PETSc (https://petsc.org/) 
+  - 3.20.6 in this work
 
 ### build PETSc
+In the case of using bash and git:
 ```bash
 git clone -b release https://gitlab.com/petsc/petsc.git petsc_nomkl
 cd petsc_nomkl
