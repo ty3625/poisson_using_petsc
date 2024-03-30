@@ -1,5 +1,5 @@
-CC			= mpicc
-CXX			= mpicxx
+CC		= mpicc
+CXX		= mpicxx
 CPPFLAGS	= 
 # CFLAGS	= -O2 -Wall -fopenmp
 CFLAGS		= -g -O0 -Wall
@@ -12,7 +12,7 @@ PROGRAM		= $(SRCS:.c=.out)
 all:	$(PROGRAM)
 
 %.out : %.c
-	$(CC) -o $@ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDES) $^ $(LIBS)
+	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(INCLUDES) $^ $(LIBS)
 
 clean:	
 	-rm -f $(PROGRAM)
