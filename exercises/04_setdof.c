@@ -88,6 +88,13 @@ int main(int argc, char *argv[])
     VALOUT(eStart);
     VALOUT(eEnd);
 
+    PetscInt numCells = cEnd - cStart;
+    PetscInt numVertices = vEnd - vStart;
+    PetscInt numEdges = eEnd - eStart;
+    VALOUT(numCells);
+    VALOUT(numVertices);
+    VALOUT(numEdges);
+
     // Destroy
 //    PetscCall(PetscViewerDestroy(&viewer));
     PetscCall(DMDestroy(&dm));
