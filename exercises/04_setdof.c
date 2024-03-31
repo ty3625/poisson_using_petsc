@@ -95,6 +95,22 @@ int main(int argc, char *argv[])
     VALOUT(numVertices);
     VALOUT(numEdges);
 
+    Vec vec;
+    PetscCall(DMCreateLocalVector(dm, &vec));
+    PetscInt vsize;
+    PetscCall(VecGetSize(vec, &vsize));
+    VALOUT(vsize);
+    VALOUT(2*1+4*1+5*2);
+    PetscCall(VecDestroy(&vec));
+
+    Mat mat;
+    PetscInt ms1, ms2;
+    PetscCall(DMCreateMatrix(dm, &mat));
+    PetscCall(MatGetSize(mat, &ms1, &ms2));
+    PetscCall(MatDestroy(&mat));
+    VALOUT(ms1);
+    VALOUT(ms2);
+
     // Destroy
 //    PetscCall(PetscViewerDestroy(&viewer));
     PetscCall(DMDestroy(&dm));
